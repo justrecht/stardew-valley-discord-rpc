@@ -1,5 +1,7 @@
 # Stardew Valley Discord RPC Mod
 
+![Discord RPC Preview](rpc_preview.png)
+
 This is a SMAPI mod for Stardew Valley that updates your Discord Rich Presence with your player name and current location.
 
 ## Prerequisites
@@ -8,7 +10,7 @@ This is a SMAPI mod for Stardew Valley that updates your Discord Rich Presence w
 2.  **SMAPI** (Stardew Modding API) installed. [Install Guide](https://stardewvalleywiki.com/Modding:Installing_SMAPI)
 3.  **.NET 6.0 SDK** (or later) installed to build the mod. [Download .NET](https://dotnet.microsoft.com/download)
 
-## Setup
+## Installation
 
 ### 1. Get a Discord Client ID
 
