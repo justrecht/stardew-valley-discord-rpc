@@ -1,0 +1,10 @@
+{
+  "Name": "Stardew Discord RPC",
+  "Author": "recht",
+  "Version": "1.0.0",
+  "Description": "Shows your Stardew Valley status in Discord.",
+  "UniqueID": "recht.StardewDiscordRPC",
+  "EntryDll": "StardewDiscordRPC.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": []
+}
