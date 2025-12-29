@@ -10,7 +10,7 @@ This is a SMAPI mod for Stardew Valley that updates your Discord Rich Presence w
 2.  **SMAPI** (Stardew Modding API) installed. [Install Guide](https://stardewvalleywiki.com/Modding:Installing_SMAPI)
 3.  **.NET 6.0 SDK** (or later) installed to build the mod. [Download .NET](https://dotnet.microsoft.com/download)
 
-## Installation
+## Build (NOTE: This is for further customization if you feel like it)
 
 ### 1. Get a Discord Client ID
 
@@ -38,7 +38,8 @@ This is a SMAPI mod for Stardew Valley that updates your Discord Rich Presence w
     ```
 3.  This will compile the mod.
 
-### 4. Install the Mod
+## MOD INSTALLATION
+### 1. How to Install the Mod
 
 1.  Locate the build output. It is usually in `StardewDiscordRPC/bin/Debug/net6.0`.
 2.  You should see a folder or a set of files including `StardewDiscordRPC.dll`, `DiscordRPC.dll`, `manifest.json`, etc.
@@ -47,6 +48,6 @@ This is a SMAPI mod for Stardew Valley that updates your Discord Rich Presence w
     *   Windows: `C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods`
     *   Mac/Linux: Check the SMAPI install guide for the path.
 
-### 5. Run the Game
+### 2. Run the Game
 
 Launch Stardew Valley via SMAPI. Your Discord status should now update!
