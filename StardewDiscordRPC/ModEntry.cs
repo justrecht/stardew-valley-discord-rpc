@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using DiscordRPC;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -11,6 +12,7 @@ namespace StardewDiscordRPC
         private DiscordRpcClient? client;
         private const string ClientId = "1351572438760292382"; 
         private DateTime? startTime;
+        private int modCount;
 
         public override void Entry(IModHelper helper)
         {
@@ -27,7 +29,9 @@ namespace StardewDiscordRPC
                 client = new DiscordRpcClient(ClientId);
                 client.Initialize();
                 startTime = DateTime.UtcNow;
+                modCount = this.Helper.ModRegistry.GetAll().Count();
                 this.Monitor.Log("Discord RPC Initialized", LogLevel.Info);
+                UpdatePresence();
             }
             catch (Exception ex)
             {
@@ -42,35 +46,40 @@ namespace StardewDiscordRPC
 
         private void OnReturnedToTitle(object? sender, ReturnedToTitleEventArgs e)
         {
-            if (client == null) return;
-
-            client.SetPresence(new RichPresence()
-            {
-                Details = "In Main Menu",
-                State = "Ready to farm",
-                Timestamps = new Timestamps()
-                {
-                    Start = startTime
-                },
-                Assets = new Assets()
-                {
-                    LargeImageKey = "stardew_icon",
-                    LargeImageText = "Stardew Valley"
-                }
-            });
+            UpdatePresence();
         }
 
         private void OnOneSecondUpdateTicked(object? sender, OneSecondUpdateTickedEventArgs e)
         {
-            if (!Context.IsWorldReady)
-                return;
-
             UpdatePresence();
         }
 
         private void UpdatePresence()
         {
-            if (client == null || Game1.player == null || Game1.currentLocation == null)
+            if (client == null) return;
+
+            if (!Context.IsWorldReady)
+            {
+                client.SetPresence(new RichPresence()
+                {
+                    Details = "In Main Menu",
+                    State = "Ready to farm",
+                    Timestamps = new Timestamps()
+                    {
+                        Start = startTime
+                    },
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "stardew_icon",
+                        LargeImageText = "Stardew Valley",
+                        SmallImageKey = "stardew_icon",
+                        SmallImageText = $"{modCount} Mods Loaded"
+                    }
+                });
+                return;
+            }
+
+            if (Game1.player == null || Game1.currentLocation == null)
                 return;
 
             string playerName = Game1.player.Name;
@@ -97,6 +106,8 @@ namespace StardewDiscordRPC
                 {
                     LargeImageKey = "stardew_icon",
                     LargeImageText = "Stardew Valley",
+                    SmallImageKey = "stardew_icon",
+                    SmallImageText = $"{modCount} Mods Loaded"
                 }
             });
         }
