@@ -72,8 +72,8 @@ namespace StardewDiscordRPC
                     {
                         LargeImageKey = "stardew_icon",
                         LargeImageText = "Stardew Valley",
-                        SmallImageKey = "stardew_icon",
-                        SmallImageText = $"{modCount} Mods Loaded"
+                        SmallImageKey = "mods_count",
+                        SmallImageText = $"Playing with {modCount} Mods!"
                     }
                 });
                 return;
@@ -106,8 +106,8 @@ namespace StardewDiscordRPC
                 {
                     LargeImageKey = "stardew_icon",
                     LargeImageText = "Stardew Valley",
-                    SmallImageKey = "stardew_icon",
-                    SmallImageText = $"{modCount} Mods Loaded"
+                    SmallImageKey = "mods_count",
+                    SmallImageText = $"Playing with {modCount} Mods!"
                 }
             });
         }
