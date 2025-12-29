@@ -1,4 +1,4 @@
-# Stardew Valley Discord RPC Mod
+# Stardew Valley Discord Rich Presence
 
 ![Discord RPC Preview](rpc_preview.png)
 
